@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - echo 'begin pre build step'
+      
+  build:
+    on-failure: ABORT
+    commands:
+      - echo 'begin  build step'
+      - aws cloudformation create-stack
+
+  post_build:
+    on-failure: ABORT
+    commands:
+      - echo 'begin post build step'
