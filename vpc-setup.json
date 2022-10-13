@@ -1,3 +1,4 @@
+//This creates a VPC with two public subnets and two private subnets in two Availability Zones
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "",
