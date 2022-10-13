@@ -1,3 +1,5 @@
+// This creates a VPC with two public subnets and one private subnets in two Availability Zones.
+
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "",
@@ -5,7 +7,7 @@
         "VPC": {
             "Type": "AWS::EC2::VPC",
             "Properties": {
-                "CidrBlock": "10.0.0.0/16",
+                "CidrBlock": "100.0.0.0/16",
                 "EnableDnsHostnames": false,
                 "EnableDnsSupport": false
             }
@@ -13,7 +15,7 @@
         "PrivateSubnet1": {
             "Type": "AWS::EC2::Subnet",
             "Properties": {
-                "CidrBlock": "10.0.10.0/24",
+                "CidrBlock": "100.0.10.0/24",
                 "MapPublicIpOnLaunch": false,
                 "VpcId": {
                     "Ref": "VPC"
@@ -33,7 +35,7 @@
         "PublicSubnet1": {
             "Type": "AWS::EC2::Subnet",
             "Properties": {
-                "CidrBlock": "10.0.0.0/24",
+                "CidrBlock": "100.0.0.0/24",
                 "MapPublicIpOnLaunch": false,
                 "VpcId": {
                     "Ref": "VPC"
@@ -53,7 +55,7 @@
         "PublicSubnet2": {
             "Type": "AWS::EC2::Subnet",
             "Properties": {
-                "CidrBlock": "10.0.1.0/24",
+                "CidrBlock": "100.0.1.0/24",
                 "MapPublicIpOnLaunch": false,
                 "VpcId": {
                     "Ref": "VPC"
