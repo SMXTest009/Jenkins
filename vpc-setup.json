@@ -1,5 +1,7 @@
-   {
-       "_comment": "This creates a VPC with two public subnets and one private subnets in two Availability Zones.",
+{
+          "_comment": "This creates a VPC with two public subnets and one private subnets in two Availability Zones.",
+}
+{
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "",
     "Resources": {
