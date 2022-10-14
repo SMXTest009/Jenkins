@@ -7,7 +7,13 @@
             "Properties": {
                 "CidrBlock": "100.0.0.0/16",
                 "EnableDnsHostnames": false,
-                "EnableDnsSupport": false
+                "EnableDnsSupport": false,
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "c2e-VPC"
+                    }
+                ]
             }
         },
         "PrivateSubnet1": {
@@ -18,6 +24,12 @@
                 "VpcId": {
                     "Ref": "VPC"
                 },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "c2e-Private Subnet AZ A"
+                    }
+                ],
                 "AvailabilityZone": {
                     "Fn::Select": [
                         "0",
@@ -38,6 +50,12 @@
                 "VpcId": {
                     "Ref": "VPC"
                 },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "c2e-Public Subnet AZ B"
+                    }
+                ],
                 "AvailabilityZone": {
                     "Fn::Select": [
                         "0",
@@ -58,6 +76,12 @@
                 "VpcId": {
                     "Ref": "VPC"
                 },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "c2e-Public Subnet AZ B"
+                    }
+                ],
                 "AvailabilityZone": {
                     "Fn::Select": [
                         "1",
@@ -70,13 +94,18 @@
                 }
             }
         },
-
         "RouteTablePublic": {
             "Type": "AWS::EC2::RouteTable",
             "Properties": {
                 "VpcId": {
                     "Ref": "VPC"
                 },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Public Route Table"
+                    }
+                ]
             }
         },
         "RouteTablePublicAssociation1": {
@@ -107,6 +136,12 @@
                 "VpcId": {
                     "Ref": "VPC"
                 },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Private Route Table A"
+                    }
+                ]
             }
         },
         "RouteTablePrivate1Association1": {
@@ -120,5 +155,5 @@
                 }
             }
         }
-    },
+    }
 }
