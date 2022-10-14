@@ -10,6 +10,7 @@ Resources:
       Tags:
         - Key: "Name"
           Value: "c2e-VPC"
+          
   PrivateSubnet1:
     Type: "AWS::EC2::Subnet"
     Properties:
@@ -25,6 +26,7 @@ Resources:
           - "0"
           - Fn::GetAZs:
               Ref: "AWS::Region"
+          
   PublicSubnet1:
     Type: "AWS::EC2::Subnet"
     Properties:
@@ -40,6 +42,7 @@ Resources:
           - "0"
           - Fn::GetAZs:
               Ref: "AWS::Region"
+              
   PublicSubnet2:
     Type: "AWS::EC2::Subnet"
     Properties:
@@ -49,12 +52,13 @@ Resources:
         Ref: "VPC"
       Tags:
         - Key: "Name"
-          Value: "Public Subnet AZ B"
+          Value: "c2e-Public Subnet AZ B"
       AvailabilityZone:
         Fn::Select:
           - "1"
           - Fn::GetAZs:
               Ref: "AWS::Region"
+              
   RouteTablePublic:
     Type: "AWS::EC2::RouteTable"
     Properties:
@@ -63,6 +67,7 @@ Resources:
       Tags:
         - Key: "Name"
           Value: "Public Route Table"
+          
   RouteTablePublicAssociation1:
     Type: "AWS::EC2::SubnetRouteTableAssociation"
     Properties:
@@ -70,6 +75,7 @@ Resources:
         Ref: "RouteTablePublic"
       SubnetId:
         Ref: "PublicSubnet1"
+        
   RouteTablePublicAssociation2:
     Type: "AWS::EC2::SubnetRouteTableAssociation"
     Properties:
@@ -77,6 +83,7 @@ Resources:
         Ref: "RouteTablePublic"
       SubnetId:
         Ref: "PublicSubnet2"
+        
   RouteTablePrivate1:
     Type: "AWS::EC2::RouteTable"
     Properties:
@@ -85,6 +92,7 @@ Resources:
       Tags:
         - Key: "Name"
           Value: "Private Route Table A"
+          
   RouteTablePrivate1Association1:
     Type: "AWS::EC2::SubnetRouteTableAssociation"
     Properties:
@@ -92,6 +100,3 @@ Resources:
         Ref: "RouteTablePrivate1"
       SubnetId:
         Ref: "PrivateSubnet1"
-Parameters: {}
-Metadata: {}
-Conditions: {}
